@@ -9,16 +9,12 @@ export const siteConfig = {
       href: "/",
     },
     {
-      label: "Docs",
-      href: "/docs",
+      label: "Products",
+      href: "/products",
     },
     {
-      label: "Pricing",
-      href: "/pricing",
-    },
-    {
-      label: "Blog",
-      href: "/blog",
+      label: "Contacts",
+      href: "/contacts",
     },
     {
       label: "About",
@@ -64,6 +60,12 @@ export const siteConfig = {
     twitter: "https://twitter.com/hero_ui",
     docs: "https://heroui.com",
     discord: "https://discord.gg/9b6yyZKmH4",
-    sponsor: "https://patreon.com/jrgarciadev",
+    whatsapp: "https://wa.me/+6282315822926",
+    email:
+      "https://mail.google.com/mail/?view=cm&fs=1&to=refaariaramdhani@gmail.com",
+  },
+  contacts: {
+    email: "refaariaramdhani@gmail.com",
+    phone: "+62-8231-5822-926",
   },
 };
