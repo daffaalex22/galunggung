@@ -1,5 +1,6 @@
 import { Head } from "./head";
 import { Footer } from "./../components/footer";
+import WhatsAppButton from "./../components/whatsapp";
 
 import { Navbar } from "@/components/navbar";
 
@@ -16,6 +17,7 @@ export default function DefaultLayout({
         {children}
       </main>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 }
