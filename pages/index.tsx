@@ -3,6 +3,8 @@ import { Snippet } from "@heroui/snippet";
 import { Code } from "@heroui/code";
 import { button as buttonStyles } from "@heroui/theme";
 
+import { Marquee } from "../components/marquee/marquee";
+
 import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import { GithubIcon } from "@/components/icons";
@@ -55,6 +57,7 @@ export default function IndexPage() {
           </Snippet>
         </div>
       </section>
+      <Marquee />
     </DefaultLayout>
   );
 }
