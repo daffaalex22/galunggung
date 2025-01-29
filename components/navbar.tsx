@@ -15,10 +15,11 @@ import NextLink from "next/link";
 import clsx from "clsx";
 import { FaWhatsapp } from "react-icons/fa";
 import { CiMail } from "react-icons/ci";
+import Image from "next/image";
 
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
-import { SearchIcon, Logo } from "@/components/icons";
+import { SearchIcon } from "@/components/icons";
 
 export const Navbar = () => {
   const searchInput = (
@@ -46,9 +47,18 @@ export const Navbar = () => {
     <HeroUINavbar maxWidth="xl" position="sticky">
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand className="gap-3 max-w-fit">
-          <NextLink className="flex justify-start items-center gap-1" href="/">
-            <Logo />
-            <p className="font-bold text-inherit">ACME</p>
+          <NextLink
+            className="flex justify-start sm:justify-end items-center gap-1"
+            href="/"
+          >
+            <Image
+              alt="Galunggung Perkasa Husada"
+              className="w-1/2 h-auto"
+              height={50}
+              src="/logo/square-trans.png"
+              width={50}
+            />
+            {/* <p className="font-bold text-inherit">GALUNGGUNG</p> */}
           </NextLink>
         </NavbarBrand>
         <div className="hidden lg:flex gap-4 justify-start ml-2">

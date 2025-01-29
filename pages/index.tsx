@@ -1,53 +1,40 @@
-import { Link } from "@heroui/link";
+import fs from "fs";
+import path from "path";
+
 import { Snippet } from "@heroui/snippet";
 import { Code } from "@heroui/code";
-import { button as buttonStyles } from "@heroui/theme";
 
 import { Marquee } from "../components/marquee/marquee";
 
-import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
 import DefaultLayout from "@/layouts/default";
+import { Expandable } from "@/components/expandable";
 
-export default function IndexPage() {
+const getHospitalLogos = () => {
+  const logosDir = path.join(process.cwd(), "public/hospital-logo");
+  const filenames = fs.readdirSync(logosDir);
+
+  return filenames.map((filename) => `/hospital-logo/${filename}`);
+};
+
+export const getStaticProps = async () => {
+  const logos = getHospitalLogos();
+
+  return {
+    props: {
+      logos,
+    },
+  };
+};
+
+interface IndexPageProps {
+  logos: string[];
+}
+
+export default function IndexPage({ logos }: IndexPageProps) {
   return (
     <DefaultLayout>
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-        <div className="inline-block max-w-xl text-center justify-center">
-          <span className={title()}>Make&nbsp;</span>
-          <span className={title({ color: "violet" })}>beautiful&nbsp;</span>
-          <br />
-          <span className={title()}>
-            websites regardless of your design experience.
-          </span>
-          <div className={subtitle({ class: "mt-4" })}>
-            Beautiful, fast and modern React UI library.
-          </div>
-        </div>
-
-        <div className="flex gap-3">
-          <Link
-            isExternal
-            className={buttonStyles({
-              color: "primary",
-              radius: "full",
-              variant: "shadow",
-            })}
-            href={siteConfig.links.docs}
-          >
-            Documentation
-          </Link>
-          <Link
-            isExternal
-            className={buttonStyles({ variant: "bordered", radius: "full" })}
-            href={siteConfig.links.github}
-          >
-            <GithubIcon size={20} />
-            GitHub
-          </Link>
-        </div>
-
         <div className="mt-8">
           <Snippet hideCopyButton hideSymbol variant="bordered">
             <span>
@@ -57,7 +44,30 @@ export default function IndexPage() {
           </Snippet>
         </div>
       </section>
+      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+        <div className="inline-block max-w-xl text-center justify-center">
+          <span className={title()}>Trusted by&nbsp;</span>
+          <span className={title({ color: "blue" })}>Clients&nbsp;</span>
+          <br />
+          <div className={subtitle({ class: "mt-4" })}>
+            Hear what our satisfied clients have to say.
+          </div>
+        </div>
+      </section>
       <Marquee />
+      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+        <div className="inline-block max-w-xl text-center justify-center">
+          <span className={title({ color: "blue" })}>Hospitals&nbsp;</span>
+          <span className={title()}>using our products&nbsp;</span>
+          <br />
+          <div className={subtitle({ class: "mt-4" })}>
+            These are our loyal clients.
+          </div>
+        </div>
+      </section>
+      <Expandable logos={logos} />
+      <br />
+      <br />
     </DefaultLayout>
   );
 }

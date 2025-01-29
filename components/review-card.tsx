@@ -21,7 +21,7 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({
   hospitalLogo,
 }) => {
   return (
-    <Card className="w-80 max-w-[340px] whitespace-normal">
+    <Card isPressable className="w-80 max-w-[340px] whitespace-normal">
       <CardHeader className="justify-between">
         <div className="flex gap-5">
           <Avatar isBordered radius="full" size="md" src={image} />
