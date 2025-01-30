@@ -17,23 +17,36 @@ const getHospitalLogos = () => {
   return filenames.map((filename) => `/hospital-logo/${filename}`);
 };
 
+const getLargeCarouselItems = () => {
+  const largeCarouselDir = path.join(process.cwd(), "public/large-carousel");
+  const filenames = fs.readdirSync(largeCarouselDir);
+
+  return filenames.map((filename) => `/large-carousel/${filename}`);
+};
+
 export const getStaticProps = async () => {
   const logos = getHospitalLogos();
+  const largeCarouselItems = getLargeCarouselItems();
 
   return {
     props: {
       logos,
+      largeCarouselItems,
     },
   };
 };
 
 interface IndexPageProps {
   logos: string[];
+  largeCarouselItems: string[];
 }
 
-export default function IndexPage({ logos }: IndexPageProps) {
+export default function IndexPage({
+  logos,
+  largeCarouselItems,
+}: IndexPageProps) {
   return (
-    <DefaultLayout>
+    <DefaultLayout largeCarouselItems={largeCarouselItems}>
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
         <div className="mt-8">
           <Snippet hideCopyButton hideSymbol variant="bordered">

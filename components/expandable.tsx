@@ -7,7 +7,7 @@ interface ExpandableProps {
 }
 
 export const Expandable = ({ logos }: ExpandableProps) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(true);
 
   const toggleExpansion = () => {
     setIsExpanded(!isExpanded);
@@ -16,7 +16,7 @@ export const Expandable = ({ logos }: ExpandableProps) => {
   return (
     <div className={`flex flex-wrap gap-4 justify-center`}>
       <div
-        className={`flex flex-wrap justify-center items-end gap-4 space-y-2 transition-max-height duration-500 ease-in-out ${isExpanded ? "max-h-max" : "max-h-24 overflow-hidden"}`}
+        className={`flex flex-wrap justify-center items-end gap-4 space-y-2 transition-max-height duration-500 ease-in-out ${isExpanded ? "max-h-max" : "max-h-24 sm:max-h-40 overflow-hidden"}`}
       >
         {logos.map((logoURL, index) => (
           <HospitalCard
