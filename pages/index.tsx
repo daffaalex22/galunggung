@@ -11,17 +11,20 @@ import DefaultLayout from "@/layouts/default";
 import { Expandable } from "@/components/expandable";
 
 const getHospitalLogos = () => {
-  const logosDir = path.join(process.cwd(), "public/hospital-logo");
+  const logosDir = path.join(process.cwd(), "public/images/hospital-logo");
   const filenames = fs.readdirSync(logosDir);
 
-  return filenames.map((filename) => `/hospital-logo/${filename}`);
+  return filenames.map((filename) => `/images/hospital-logo/${filename}`);
 };
 
 const getLargeCarouselItems = () => {
-  const largeCarouselDir = path.join(process.cwd(), "public/large-carousel");
+  const largeCarouselDir = path.join(
+    process.cwd(),
+    "public/images/large-carousel",
+  );
   const filenames = fs.readdirSync(largeCarouselDir);
 
-  return filenames.map((filename) => `/large-carousel/${filename}`);
+  return filenames.map((filename) => `/images/large-carousel/${filename}`);
 };
 
 export const getStaticProps = async () => {

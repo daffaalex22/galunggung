@@ -9,7 +9,7 @@ export const Footer = () => {
 
   return (
     <footer className="w-full flex flex-wrap items-center justify-between bg-gradient-to-r from-[#5EA2EF] to-[#0072F5] text-white py-0">
-      <div className="bg-[url('/medical-tensimeter.jpg')] bg-cover bg-center bg-no-repeat h-80 w-full lg:basis-2/3 opacity-80 p-4 text-white flex flex-col lg:h-full gap-4">
+      <div className="bg-[url('/images/medical-tensimeter.jpg')] bg-cover bg-center bg-no-repeat h-80 w-full lg:basis-2/3 opacity-80 p-4 text-white flex flex-col lg:h-full gap-4">
         <p className="font-semibold lg:font-bold italic">CONTACT US </p>
         <p className="font-semibold text-2xl lg:text-5xl uppercase">
           Contact us for additional details or assistance.
@@ -48,7 +48,7 @@ export const Footer = () => {
           alt="Galunggung Perkasa Husada"
           className="max-sm:w-1/2 w-full h-auto md:w-1/2"
           height={50}
-          src="/logo/long-trans.png"
+          src="/images/logo/long-trans.png"
           width={200}
         />
         <h1 className="basis-1 font-semibold italic">ADDRESS</h1>

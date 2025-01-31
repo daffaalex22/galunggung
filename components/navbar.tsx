@@ -55,7 +55,7 @@ export const Navbar = () => {
               alt="Galunggung Perkasa Husada"
               className="w-1/2 h-auto"
               height={50}
-              src="/logo/square-trans.png"
+              src="/images/logo/square-trans.png"
               width={50}
             />
             {/* <p className="font-bold text-inherit">GALUNGGUNG</p> */}
