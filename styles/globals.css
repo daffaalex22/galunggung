@@ -24,3 +24,7 @@
   height: auto;
   object-fit: cover;
 }
+
+[data-focus="false"][data-focus-visible="false"] {
+  display: none;
+}

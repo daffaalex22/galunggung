@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import { HeroUIProvider } from "@heroui/system";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { useRouter } from "next/router";
+import { NextIntlClientProvider } from "next-intl";
 
 import { fontSans, fontMono } from "@/config/fonts";
 import "@/styles/globals.css";
@@ -11,11 +12,17 @@ export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   return (
-    <HeroUIProvider navigate={router.push}>
-      <NextThemesProvider>
-        <Component {...pageProps} />
-      </NextThemesProvider>
-    </HeroUIProvider>
+    <NextIntlClientProvider
+      locale={router.locale}
+      messages={pageProps.messages}
+      timeZone="Asia/Jakarta"
+    >
+      <HeroUIProvider navigate={router.push}>
+        <NextThemesProvider>
+          <Component {...pageProps} />
+        </NextThemesProvider>
+      </HeroUIProvider>
+    </NextIntlClientProvider>
   );
 }
 

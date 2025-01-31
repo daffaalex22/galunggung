@@ -3,6 +3,7 @@ import path from "path";
 
 import { Snippet } from "@heroui/snippet";
 import { Code } from "@heroui/code";
+import { useTranslations } from "next-intl";
 
 import { Marquee } from "../components/marquee/marquee";
 
@@ -27,7 +28,21 @@ const getLargeCarouselItems = () => {
   return filenames.map((filename) => `/images/large-carousel/${filename}`);
 };
 
-export const getStaticProps = async () => {
+interface StaticPropsContext {
+  locale: string;
+}
+
+interface StaticProps {
+  props: {
+    logos: string[];
+    largeCarouselItems: string[];
+    messages: Record<string, string>;
+  };
+}
+
+export const getStaticProps = async (
+  context: StaticPropsContext,
+): Promise<StaticProps> => {
   const logos = getHospitalLogos();
   const largeCarouselItems = getLargeCarouselItems();
 
@@ -35,6 +50,7 @@ export const getStaticProps = async () => {
     props: {
       logos,
       largeCarouselItems,
+      messages: (await import(`../locales/${context.locale}.json`)).default,
     },
   };
 };
@@ -48,6 +64,8 @@ export default function IndexPage({
   logos,
   largeCarouselItems,
 }: IndexPageProps) {
+  const t = useTranslations("home");
+
   return (
     <DefaultLayout largeCarouselItems={largeCarouselItems}>
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
@@ -62,22 +80,26 @@ export default function IndexPage({
       </section>
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
         <div className="inline-block max-w-xl text-center justify-center">
-          <span className={title()}>Trusted by&nbsp;</span>
-          <span className={title({ color: "blue" })}>Clients&nbsp;</span>
+          <span className={title()}>{t("review_title_1")}</span>
+          <span className={title({ color: "blue" })}>
+            {t("review_title_2")}
+          </span>
           <br />
           <div className={subtitle({ class: "mt-4" })}>
-            Hear what our satisfied clients have to say.
+            {t("review_subtitle")}
           </div>
         </div>
       </section>
       <Marquee />
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
         <div className="inline-block max-w-xl text-center justify-center">
-          <span className={title({ color: "blue" })}>Hospitals&nbsp;</span>
-          <span className={title()}>using our products&nbsp;</span>
+          <span className={title({ color: "blue" })}>
+            {t("client_list_title_1")}
+          </span>
+          <span className={title()}>{t("client_list_title_2")}</span>
           <br />
           <div className={subtitle({ class: "mt-4" })}>
-            These are our loyal clients.
+            {t("client_list_subtitle")}
           </div>
         </div>
       </section>
