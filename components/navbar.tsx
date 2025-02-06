@@ -18,7 +18,6 @@ import { CiMail } from "react-icons/ci";
 import Image from "next/image";
 import { Tab, Tabs } from "@heroui/tabs";
 import { FlagIcon } from "react-flag-kit";
-import { usePathname } from "next/navigation";
 import { useRouter } from "next/router";
 
 import { siteConfig } from "@/config/site";
@@ -48,24 +47,12 @@ export const Navbar = () => {
   );
 
   const router = useRouter();
-  const pathname = usePathname();
 
   const { locale, locales, asPath } = router;
 
   const changeLanguage = (newLocale: string) => {
     router.push(asPath, asPath, { locale: newLocale });
   };
-
-  // const [selectedLanguage, setselectedLanguage] = useState("en");
-
-  // useEffect(() => {
-  //   console.log("useffect_language_change");
-  //   if (selectedLanguage === "id") {
-  //     changeLanguage("id");
-  //   } else {
-  //     changeLanguage("en");
-  //   }
-  // }, [selectedLanguage]);
 
   return (
     <HeroUINavbar maxWidth="xl" position="sticky">
@@ -115,12 +102,18 @@ export const Navbar = () => {
             <CiMail className="text-default-500" size={24} strokeWidth={1.2} />
           </Link>
           <ThemeSwitch />
-          <Tabs defaultSelectedKey={locale} size="sm">
+          <Tabs
+            defaultSelectedKey={locale}
+            size="sm"
+            onSelectionChange={(selectedKey) =>
+              changeLanguage(selectedKey as string)
+            }
+          >
             <Tab key="id">
-              <FlagIcon code="ID" onClick={() => changeLanguage("id")} />
+              <FlagIcon code="ID" />
             </Tab>
             <Tab key="en">
-              <FlagIcon code="US" onClick={() => changeLanguage("en")} />
+              <FlagIcon code="US" />
             </Tab>
           </Tabs>
         </NavbarItem>
@@ -155,6 +148,20 @@ export const Navbar = () => {
               </Link>
             </NavbarMenuItem>
           ))}
+          <Tabs
+            defaultSelectedKey={locale}
+            size="sm"
+            onSelectionChange={(selectedKey) =>
+              changeLanguage(selectedKey as string)
+            }
+          >
+            <Tab key="id">
+              <FlagIcon code="ID" />{" "}
+            </Tab>
+            <Tab key="en">
+              <FlagIcon code="US" />{" "}
+            </Tab>
+          </Tabs>
         </div>
       </NavbarMenu>
     </HeroUINavbar>
