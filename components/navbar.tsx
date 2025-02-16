@@ -5,14 +5,11 @@ import {
   NavbarMenuToggle,
   NavbarBrand,
   NavbarItem,
-  NavbarMenuItem,
 } from "@heroui/navbar";
 import { Kbd } from "@heroui/kbd";
 import { Link } from "@heroui/link";
 import { Input } from "@heroui/input";
-import { link as linkStyles } from "@heroui/theme";
 import NextLink from "next/link";
-import clsx from "clsx";
 import { FaWhatsapp } from "react-icons/fa";
 import { CiMail } from "react-icons/ci";
 import Image from "next/image";
@@ -73,7 +70,7 @@ export const Navbar = () => {
           </NextLink>
         </NavbarBrand>
         <div className="hidden lg:flex gap-4 justify-start ml-2">
-          {siteConfig.navItems.map((item) => (
+          {/* {siteConfig.navItems.map((item) => (
             <NavbarItem key={item.href}>
               <NextLink
                 className={clsx(
@@ -86,7 +83,7 @@ export const Navbar = () => {
                 {item.label}
               </NextLink>
             </NavbarItem>
-          ))}
+          ))} */}
         </div>
       </NavbarContent>
 
@@ -130,7 +127,7 @@ export const Navbar = () => {
 
       <NavbarMenu>
         <div className="mx-4 mt-2 flex flex-col gap-2">
-          {siteConfig.navMenuItems.map((item, index) => (
+          {/* {siteConfig.navMenuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
               <Link
                 color={
@@ -146,7 +143,7 @@ export const Navbar = () => {
                 {item.label}
               </Link>
             </NavbarMenuItem>
-          ))}
+          ))} */}
           <Tabs
             defaultSelectedKey={locale}
             size="sm"
