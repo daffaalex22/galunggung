@@ -21,6 +21,7 @@ export const LargeCarousel = ({ items }: LargeCarouselProps) => {
         dynamicBullets: true,
         clickable: true,
       }}
+      speed={1000}
       style={
         {
           "--swiper-navigation-color": "#FFF",

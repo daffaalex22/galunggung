@@ -4,36 +4,36 @@ export const siteConfig = {
   name: "PT Galunggung Perkasa Husada",
   description: "Make beautiful websites regardless of your design experience.",
   navItems: [
-    {
-      label: "Home",
-      href: "/",
-    },
-    {
-      label: "Products",
-      href: "/products",
-    },
-    {
-      label: "Contacts",
-      href: "/contacts",
-    },
-    {
-      label: "About",
-      href: "/about",
-    },
+    // {
+    //   label: "Home",
+    //   href: "/",
+    // },
+    // {
+    //   label: "Products",
+    //   href: "/products",
+    // },
+    // {
+    //   label: "Contacts",
+    //   href: "/contacts",
+    // },
+    // {
+    //   label: "About",
+    //   href: "/about",
+    // },
   ],
   navMenuItems: [
-    {
-      label: "Home",
-      href: "/home",
-    },
-    {
-      label: "Products",
-      href: "/products",
-    },
-    {
-      label: "Contacts",
-      href: "/contacts",
-    },
+    // {
+    //   label: "Home",
+    //   href: "/home",
+    // },
+    // {
+    //   label: "Products",
+    //   href: "/products",
+    // },
+    // {
+    //   label: "Contacts",
+    //   href: "/contacts",
+    // },
   ],
   links: {
     whatsapp: "https://wa.me/+6282315822926",
