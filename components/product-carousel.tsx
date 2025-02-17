@@ -52,7 +52,7 @@ export const ProductCarousel = ({ items }: ProductCarouselProps) => {
       spaceBetween={30}
     >
       {items?.map((item, index) => (
-        <SwiperSlide key={index}>
+        <SwiperSlide key={index} className="cursor-grab">
           <ProductCard imageSource={item} />
         </SwiperSlide>
       ))}
