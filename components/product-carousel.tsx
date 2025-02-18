@@ -7,24 +7,26 @@ import { Card, CardBody, CardHeader } from "@heroui/card";
 import { Image } from "@heroui/image";
 
 interface ProductCarouselProps {
-  items: string[];
+  items: Array<Record<string, string>>;
 }
 
 interface ProductCardProps {
   imageSource: string;
+  title: string;
+  description: string;
 }
 
-const ProductCard = ({ imageSource }: ProductCardProps) => {
+const ProductCard = ({ imageSource, title, description }: ProductCardProps) => {
   return (
     <Card className="py-4">
       <CardHeader className="pb-0 pt-1 px-4 flex-col items-center">
-        <h4 className="font-bold text-large">Product Title</h4>
+        <h4 className="font-bold text-large">{title}</h4>
       </CardHeader>
       <CardBody className="overflow-visible py-2">
         <Image
           alt="Card background"
           className="object-cover rounded-xl"
-          src="https://heroui.com/images/hero-card-complete.jpeg"
+          src={imageSource}
           width="auto"
         />
       </CardBody>
@@ -33,6 +35,8 @@ const ProductCard = ({ imageSource }: ProductCardProps) => {
 };
 
 export const ProductCarousel = ({ items }: ProductCarouselProps) => {
+  console.log("ITEMS", items);
+
   return (
     <Swiper
       breakpoints={{
@@ -53,7 +57,11 @@ export const ProductCarousel = ({ items }: ProductCarouselProps) => {
     >
       {items?.map((item, index) => (
         <SwiperSlide key={index} className="cursor-grab">
-          <ProductCard imageSource={item} />
+          <ProductCard
+            description={item.description}
+            imageSource={item.image}
+            title={item.title}
+          />
         </SwiperSlide>
       ))}
     </Swiper>

@@ -2,19 +2,17 @@ import React from "react";
 
 import { ReviewCard } from "../review-card";
 
-import { contentConfig } from "./../../config/content";
-
-export const Marquee = () => {
+export const Marquee = ({ data }: { data: Array<Record<string, string>> }) => {
   return (
     <>
       <div className="relative flex overflow-x-hidden">
         <div className="flex animate-marquee space-x-8 py-4 whitespace-nowrap">
-          {contentConfig.reviews.map((review, index) => (
+          {data.map((review, index) => (
             <ReviewCard
               key={index}
-              hospital={review.hospital}
-              hospitalLogo={review.hospitalLogo}
-              image={review.image}
+              hospital={review.institutionName}
+              hospitalLogo={review.institutionLogo}
+              image={review.avatar}
               name={review.name}
               review={review.review}
               title={review.title}
@@ -22,12 +20,12 @@ export const Marquee = () => {
           ))}
         </div>
         <div className="flex absolute top-0 animate-marquee-2 space-x-8 py-4 pl-8 whitespace-nowrap">
-          {contentConfig.reviews.map((review, index) => (
+          {data.map((review, index) => (
             <ReviewCard
               key={index}
-              hospital={review.hospital}
-              hospitalLogo={review.hospitalLogo}
-              image={review.image}
+              hospital={review.institutionName}
+              hospitalLogo={review.institutionLogo}
+              image={review.avatar}
               name={review.name}
               review={review.review}
               title={review.title}
