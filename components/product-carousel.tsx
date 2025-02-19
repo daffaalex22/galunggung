@@ -5,6 +5,8 @@ import { FreeMode } from "swiper/modules";
 import "swiper/css/navigation";
 import { Card, CardBody, CardHeader } from "@heroui/card";
 import { Image } from "@heroui/image";
+import * as motion from "motion/react-client";
+import { AnimatePresence } from "motion/react";
 
 interface ProductCarouselProps {
   items: Array<Record<string, string>>;
@@ -23,20 +25,27 @@ const ProductCard = ({ imageSource, title, description }: ProductCardProps) => {
         <h4 className="font-bold text-large">{title}</h4>
       </CardHeader>
       <CardBody className="overflow-visible py-2">
-        <Image
-          alt="Card background"
-          className="object-cover rounded-xl"
-          src={imageSource}
-          width="auto"
-        />
+        <div className="overflow-hidden rounded-xl">
+          <motion.div
+            whileHover={{
+              scale: 1.2,
+              transition: { duration: 0.5 },
+            }}
+          >
+            <Image
+              alt="Card background"
+              className="object-cover rounded-xl"
+              src={imageSource}
+              width="auto"
+            />
+          </motion.div>
+        </div>
       </CardBody>
     </Card>
   );
 };
 
 export const ProductCarousel = ({ items }: ProductCarouselProps) => {
-  console.log("ITEMS", items);
-
   return (
     <Swiper
       breakpoints={{
@@ -49,19 +58,33 @@ export const ProductCarousel = ({ items }: ProductCarouselProps) => {
           spaceBetween: 30,
         },
       }}
-      className="mySwiper"
+      className="mySwiper cursor-grab"
       freeMode={true}
       modules={[FreeMode]}
       slidesPerView={3}
       spaceBetween={30}
     >
       {items?.map((item, index) => (
-        <SwiperSlide key={index} className="cursor-grab">
-          <ProductCard
-            description={item.description}
-            imageSource={item.image}
-            title={item.title}
-          />
+        <SwiperSlide key={index}>
+          <AnimatePresence mode="wait">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              viewport={{
+                once: true,
+              }}
+              whileInView={{
+                y: 0,
+                opacity: 1,
+                transition: { duration: 2, delay: 0.75 * index },
+              }}
+            >
+              <ProductCard
+                description={item.description}
+                imageSource={item.image}
+                title={item.title}
+              />
+            </motion.div>
+          </AnimatePresence>
         </SwiperSlide>
       ))}
     </Swiper>

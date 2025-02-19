@@ -22,8 +22,6 @@ export const Footer = ({
 }) => {
   const currentYear = new Date().getFullYear();
 
-  console.log("FOOTER", footerImage);
-
   return (
     <footer className="w-full flex flex-wrap items-center justify-between bg-gradient-to-r from-[#5EA2EF] to-[#0072F5] text-white py-0">
       <div className="bg-[url('/images/medical-tensimeter.jpg')] bg-cover bg-center bg-no-repeat h-80 w-full lg:basis-2/3 opacity-80 p-4 text-white flex flex-col lg:h-full gap-4">

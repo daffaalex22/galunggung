@@ -1,4 +1,7 @@
 import axios from "axios";
+import * as motion from "motion/react-client";
+import { Snippet } from "@heroui/snippet";
+import { Code } from "@heroui/code";
 
 import { Marquee } from "../components/marquee/marquee";
 
@@ -180,7 +183,18 @@ export default function IndexPage({
       largeCarouselItems={largeCarouselItems}
       text={text}
     >
-      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+      <motion.section
+        className="flex flex-col items-center justify-center gap-4 py-8 md:py-10"
+        initial={{ opacity: 0, y: 40 }}
+        viewport={{
+          once: true,
+        }}
+        whileInView={{
+          y: 0,
+          opacity: 1,
+          transition: { duration: 1.5, delay: 0.5 },
+        }}
+      >
         <div className="inline-block max-w-xl text-center justify-center">
           <span className={title()}>{text.productTitle1}</span>
           <span className={title({ color: "blue" })}>{text.productTitle2}</span>
@@ -189,9 +203,20 @@ export default function IndexPage({
             {text.productSubtitle}
           </div>
         </div>
-      </section>
+      </motion.section>
       <ProductCarousel items={products} />
-      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+      <motion.section
+        className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 mt-16"
+        initial={{ opacity: 0, y: 40 }}
+        viewport={{
+          once: true,
+        }}
+        whileInView={{
+          y: 0,
+          opacity: 1,
+          transition: { duration: 1.5, delay: 0.5 },
+        }}
+      >
         <div className="inline-block max-w-xl text-center justify-center">
           <span className={title()}>{text.reviewTitle1}</span>
           <span className={title({ color: "blue" })}>{text.reviewTitle2}</span>
@@ -200,9 +225,20 @@ export default function IndexPage({
             {text.reviewSubtitle}
           </div>
         </div>
-      </section>
+      </motion.section>
       <Marquee data={reviews} />
-      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+      <motion.section
+        className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 mt-16"
+        initial={{ opacity: 0, y: 40 }}
+        viewport={{
+          once: true,
+        }}
+        whileInView={{
+          y: 0,
+          opacity: 1,
+          transition: { duration: 1.5, delay: 0.5 },
+        }}
+      >
         <div className="inline-block max-w-xl text-center justify-center">
           <span className={title({ color: "blue" })}>{text.clientsTitle1}</span>
           <span className={title()}>{text.clientsTitle2}</span>
@@ -211,8 +247,36 @@ export default function IndexPage({
             {text.clientsSubtitle}
           </div>
         </div>
-      </section>
+      </motion.section>
       <Expandable logos={hospitalLogos} />
+      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 mt-16">
+        <div className="inline-block max-w-xl text-center justify-center">
+          <span className={title({ color: "blue" })}>{text.contactCTA}</span>
+          <br />
+          <div className={subtitle({ class: "mt-4" })}>
+            {text.contactDescription}
+          </div>
+        </div>
+        <div className="mt-8">
+          <Snippet hideSymbol variant="bordered">
+            <span>
+              {/* <FaWhatsapp className="inline mr-4" size={22} /> */}
+              <Code className="cursor-pointer" color="primary">
+                {contactData.phoneNumber}
+              </Code>
+            </span>
+          </Snippet>
+          <Snippet hideSymbol className="ml-4" variant="bordered">
+            <span>
+              {/* <FaWhatsapp className="inline mr-4" size={22} /> */}
+              <Code className="cursor-pointer" color="primary">
+                {contactData.email}
+              </Code>
+            </span>
+          </Snippet>
+        </div>
+      </section>
+      <br />
       <br />
       <br />
     </DefaultLayout>
