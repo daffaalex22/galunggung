@@ -250,30 +250,65 @@ export default function IndexPage({
       </motion.section>
       <Expandable logos={hospitalLogos} />
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 mt-16">
-        <div className="inline-block max-w-xl text-center justify-center">
+        <motion.div
+          className="inline-block max-w-xl text-center justify-center"
+          initial={{ opacity: 0, y: 40 }}
+          viewport={{
+            once: true,
+          }}
+          whileInView={{
+            y: 0,
+            opacity: 1,
+            transition: { duration: 1 },
+          }}
+        >
           <span className={title({ color: "blue" })}>{text.contactCTA}</span>
           <br />
           <div className={subtitle({ class: "mt-4" })}>
             {text.contactDescription}
           </div>
-        </div>
-        <div className="mt-8">
-          <Snippet hideSymbol variant="bordered">
-            <span>
-              {/* <FaWhatsapp className="inline mr-4" size={22} /> */}
-              <Code className="cursor-pointer" color="primary">
-                {contactData.phoneNumber}
-              </Code>
-            </span>
-          </Snippet>
-          <Snippet hideSymbol className="ml-4" variant="bordered">
-            <span>
-              {/* <FaWhatsapp className="inline mr-4" size={22} /> */}
-              <Code className="cursor-pointer" color="primary">
-                {contactData.email}
-              </Code>
-            </span>
-          </Snippet>
+        </motion.div>
+        <div className="mt-8 flex flex-wrap justify-center gap-8">
+          <motion.span
+            initial={{ opacity: 0, y: 40 }}
+            viewport={{
+              once: true,
+            }}
+            whileInView={{
+              y: 0,
+              opacity: 1,
+              transition: { duration: 1.5 },
+            }}
+          >
+            <Snippet hideSymbol variant="bordered">
+              <span>
+                {/* <FaWhatsapp className="inline mr-4" size={22} /> */}
+                <Code className="cursor-pointer" color="primary">
+                  {contactData.phoneNumber}
+                </Code>
+              </span>
+            </Snippet>
+          </motion.span>
+          <motion.span
+            initial={{ opacity: 0, y: 40 }}
+            viewport={{
+              once: true,
+            }}
+            whileInView={{
+              y: 0,
+              opacity: 1,
+              transition: { duration: 1.5 },
+            }}
+          >
+            <Snippet hideSymbol className="ml-4" variant="bordered">
+              <span>
+                {/* <FaWhatsapp className="inline mr-4" size={22} /> */}
+                <Code className="cursor-pointer" color="primary">
+                  {contactData.email}
+                </Code>
+              </span>
+            </Snippet>
+          </motion.span>
         </div>
       </section>
       <br />

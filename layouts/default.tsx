@@ -29,7 +29,7 @@ export default function DefaultLayout({
 }) {
   return (
     <>
-      <div className="relative flex flex-col">
+      <div className="relative flex flex-col items-center">
         <Head />
         <Navbar />
         <LargeCarousel items={largeCarouselItems} />
