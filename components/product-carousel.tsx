@@ -20,7 +20,7 @@ interface ProductCardProps {
 
 const ProductCard = ({ imageSource, title, description }: ProductCardProps) => {
   return (
-    <Card className="py-4">
+    <Card aria-label="product-card" className="py-4">
       <CardHeader className="pb-0 pt-1 px-4 flex-col items-center">
         <h4 className="font-bold text-large">{title}</h4>
       </CardHeader>
@@ -34,6 +34,7 @@ const ProductCard = ({ imageSource, title, description }: ProductCardProps) => {
           >
             <Image
               alt="Card background"
+              aria-label="product-image"
               className="object-cover rounded-xl"
               src={imageSource}
               width="auto"

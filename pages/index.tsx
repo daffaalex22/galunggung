@@ -14,6 +14,19 @@ import { Expandable } from "@/components/expandable";
 const STRAPI_BASE_URL = process.env.STRAPI_BASE_URL;
 const STRAPI_API_URL = STRAPI_BASE_URL + `/api`;
 
+interface ReviewData {
+  name: string;
+  title: string;
+  review: string;
+  avatar: {
+    url: string;
+  };
+  institutionName: string;
+  institutionLogo: {
+    url: string;
+  };
+}
+
 const getReviews = async () => {
   const response = await axios.get(`${STRAPI_API_URL}/reviews`, {
     params: {
@@ -21,7 +34,7 @@ const getReviews = async () => {
     },
   });
 
-  const reviews = response.data.data.map((review) => {
+  const reviews = response.data.data.map((review: ReviewData) => {
     return {
       name: review.name,
       title: review.title,
@@ -35,6 +48,14 @@ const getReviews = async () => {
   return reviews;
 };
 
+interface ProductData {
+  title: string;
+  description: string;
+  image: {
+    url: string;
+  };
+}
+
 const getProducts = async () => {
   const response = await axios.get(`${STRAPI_API_URL}/products`, {
     params: {
@@ -42,7 +63,7 @@ const getProducts = async () => {
     },
   });
 
-  const products = response.data.data.map((product) => {
+  const products = response.data.data.map((product: ProductData) => {
     return {
       title: product.title,
       description: product.description,
@@ -79,6 +100,26 @@ const getHomeTexts = async ({ locale }: { locale: string }) => {
   return homeTexts;
 };
 
+interface CarouselImage {
+  url: string;
+}
+
+interface HomePictureResponse {
+  data: {
+    carousel: CarouselImage[];
+    footer: {
+      url: string;
+    };
+    clientLogos: {
+      url: string;
+    }[];
+  };
+}
+
+interface ClientLogo {
+  url: string;
+}
+
 const getHomePictures = async () => {
   const response = await axios.get(`${STRAPI_API_URL}/home-picture`, {
     params: {
@@ -86,14 +127,14 @@ const getHomePictures = async () => {
     },
   });
 
-  const largeCarouselItems = response.data.data.carousel.map(
-    (item) => STRAPI_BASE_URL + item.url,
-  );
+  const largeCarouselItems: string[] = (
+    response.data as HomePictureResponse
+  ).data.carousel.map((item: CarouselImage) => STRAPI_BASE_URL + item.url);
 
   const footerImage = STRAPI_BASE_URL + response.data.data.footer.url;
 
-  const hospitalLogos = response.data.data.clientLogos.map(
-    (item) => STRAPI_BASE_URL + item.url,
+  const hospitalLogos: string[] = response.data.data.clientLogos.map(
+    (item: ClientLogo) => STRAPI_BASE_URL + item.url,
   );
 
   return {
@@ -280,7 +321,7 @@ export default function IndexPage({
               transition: { duration: 1.5 },
             }}
           >
-            <Snippet hideSymbol variant="bordered">
+            <Snippet hideSymbol aria-label="phone-number" variant="bordered">
               <span>
                 {/* <FaWhatsapp className="inline mr-4" size={22} /> */}
                 <Code className="cursor-pointer" color="primary">
@@ -300,7 +341,12 @@ export default function IndexPage({
               transition: { duration: 1.5 },
             }}
           >
-            <Snippet hideSymbol className="ml-4" variant="bordered">
+            <Snippet
+              hideSymbol
+              aria-label="email"
+              className="ml-4"
+              variant="bordered"
+            >
               <span>
                 {/* <FaWhatsapp className="inline mr-4" size={22} /> */}
                 <Code className="cursor-pointer" color="primary">

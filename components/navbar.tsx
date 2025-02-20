@@ -73,6 +73,7 @@ export const Navbar = () => {
   return (
     <>
       <Progress
+        aria-label="reading-progress"
         classNames={{
           base: "fixed z-50",
           track: "drop-shadow-md border border-default",
@@ -124,10 +125,20 @@ export const Navbar = () => {
           justify="end"
         >
           <NavbarItem className="hidden sm:flex gap-2">
-            <Link isExternal href={siteConfig.links.whatsapp} title="Whatsapp">
+            <Link
+              isExternal
+              aria-label="whatsapp-icon"
+              href={siteConfig.links.whatsapp}
+              title="Whatsapp"
+            >
               <FaWhatsapp className="text-default-500" size={24} />
             </Link>
-            <Link isExternal href={siteConfig.links.email} title="Email">
+            <Link
+              isExternal
+              aria-label="email-icon"
+              href={siteConfig.links.email}
+              title="Email"
+            >
               <CiMail
                 className="text-default-500"
                 size={24}
@@ -136,6 +147,7 @@ export const Navbar = () => {
             </Link>
             <ThemeSwitch />
             <Tabs
+              aria-label="language-switch"
               defaultSelectedKey={locale}
               size="sm"
               onSelectionChange={(selectedKey) =>
@@ -181,6 +193,7 @@ export const Navbar = () => {
             </NavbarMenuItem>
           ))} */}
             <Tabs
+              aria-label="language-switch"
               defaultSelectedKey={locale}
               size="sm"
               onSelectionChange={(selectedKey) =>

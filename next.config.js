@@ -14,6 +14,13 @@ const nextConfig = {
         pathname: '/**',
         search: '',
       },
+      {
+        protocol: 'https',
+        hostname: 'galunggung-backend.onrender.com',
+        port: '',
+        pathname: '/**',
+        search: '',
+      },
     ],
   },
 }

@@ -21,7 +21,7 @@ export const Footer = ({
 
   return (
     <>
-      <Divider className="w-11/12" />
+      <Divider aria-label="divider" className="w-11/12" />
       <footer className="w-full flex flex-wrap justify-center items-center p-3">
         <p className="text-gray-400 text-sm inline mr-3">
           {text.addressTitle[0] + text.addressTitle.slice(1).toLowerCase()}

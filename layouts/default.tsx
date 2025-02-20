@@ -16,16 +16,16 @@ interface TextProps {
 
 export default function DefaultLayout({
   children,
-  largeCarouselItems,
-  footerImage,
-  text,
-  contactData,
+  largeCarouselItems = [],
+  footerImage = "",
+  text = {} as TextProps,
+  contactData = {},
 }: {
   children: React.ReactNode;
-    largeCarouselItems: string[];
-    footerImage: string;
-    text: TextProps;
-    contactData: Record<string, string>;
+    largeCarouselItems?: string[];
+    footerImage?: string;
+    text?: TextProps;
+    contactData?: Record<string, string>;
 }) {
   return (
     <>
