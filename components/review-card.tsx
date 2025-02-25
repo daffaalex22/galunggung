@@ -27,7 +27,6 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({
         <div className="flex gap-5">
           <CustomAvatar
             isBordered
-            showFallback
             aria-label="profile-picture"
             radius="full"
             size="md"
