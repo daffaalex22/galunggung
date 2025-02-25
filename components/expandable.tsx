@@ -23,7 +23,7 @@ export const Expandable = ({ logos }: ExpandableProps) => {
           <motion.div
             key={index}
             initial={{ opacity: 0, scale: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 * index }}
+            transition={{ duration: 0.5, delay: 0.05 * index }}
             viewport={{
               once: true,
             }}

@@ -2,6 +2,7 @@ import axios from "axios";
 import * as motion from "motion/react-client";
 import { Snippet } from "@heroui/snippet";
 import { Code } from "@heroui/code";
+import { addToast } from "@heroui/toast";
 
 import { Marquee } from "../components/marquee/marquee";
 
@@ -233,7 +234,7 @@ export default function IndexPage({
         whileInView={{
           y: 0,
           opacity: 1,
-          transition: { duration: 1.5, delay: 0.5 },
+          transition: { duration: 1, delay: 0.5 },
         }}
       >
         <div className="inline-block max-w-xl text-center justify-center">
@@ -255,7 +256,7 @@ export default function IndexPage({
         whileInView={{
           y: 0,
           opacity: 1,
-          transition: { duration: 1.5, delay: 0.5 },
+          transition: { duration: 1, delay: 0.5 },
         }}
       >
         <div className="inline-block max-w-xl text-center justify-center">
@@ -277,7 +278,7 @@ export default function IndexPage({
         whileInView={{
           y: 0,
           opacity: 1,
-          transition: { duration: 1.5, delay: 0.5 },
+          transition: { duration: 1, delay: 0.5 },
         }}
       >
         <div className="inline-block max-w-xl text-center justify-center">
@@ -321,7 +322,16 @@ export default function IndexPage({
               transition: { duration: 1.5 },
             }}
           >
-            <Snippet hideSymbol aria-label="phone-number" variant="bordered">
+            <Snippet
+              hideSymbol
+              aria-label="phone-number"
+              variant="bordered"
+              onCopy={() => {
+                addToast({
+                  title: "Phone number copied",
+                });
+              }}
+            >
               <span>
                 {/* <FaWhatsapp className="inline mr-4" size={22} /> */}
                 <Code className="cursor-pointer" color="primary">
@@ -346,6 +356,11 @@ export default function IndexPage({
               aria-label="email"
               className="ml-4"
               variant="bordered"
+              onCopy={() => {
+                addToast({
+                  title: "Email copied",
+                });
+              }}
             >
               <span>
                 {/* <FaWhatsapp className="inline mr-4" size={22} /> */}

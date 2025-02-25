@@ -60,7 +60,7 @@ export const ProductCarousel = ({ items }: ProductCarouselProps) => {
           spaceBetween: 30,
         },
       }}
-      className="mySwiper cursor-grab"
+      className="mySwiper cursor-grab py-2"
       freeMode={true}
       modules={[FreeMode]}
       slidesPerView={3}
@@ -77,7 +77,10 @@ export const ProductCarousel = ({ items }: ProductCarouselProps) => {
               whileInView={{
                 y: 0,
                 opacity: 1,
-                transition: { duration: 2, delay: 0.75 * index },
+                transition: {
+                  duration: index < 3 ? 1.5 : 0.75,
+                  delay: index < 3 ? 0.5 * index : 0,
+                },
               }}
             >
               <ProductCard
