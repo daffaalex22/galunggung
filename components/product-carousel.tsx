@@ -4,7 +4,7 @@ import "swiper/css/pagination";
 import { FreeMode } from "swiper/modules";
 import "swiper/css/navigation";
 import { Card, CardBody, CardHeader } from "@heroui/card";
-import { Image } from "@heroui/image";
+import Image from "next/image";
 import * as motion from "motion/react-client";
 import { AnimatePresence } from "motion/react";
 
@@ -36,8 +36,9 @@ const ProductCard = ({ imageSource, title, description }: ProductCardProps) => {
               alt="Card background"
               aria-label="product-image"
               className="object-cover rounded-xl"
+              height={200}
               src={imageSource}
-              width="auto"
+              width={200}
             />
           </motion.div>
         </div>

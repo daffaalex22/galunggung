@@ -1,7 +1,8 @@
 import React from "react";
 import { Card, CardHeader, CardBody, CardFooter } from "@heroui/card";
-import { Avatar } from "@heroui/avatar";
 import Image from "next/image";
+
+import CustomAvatar from "./custom-avatar";
 
 interface ReviewCardProps {
   name: string;
@@ -24,8 +25,9 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({
     <Card isPressable className="w-80 max-w-[340px] whitespace-normal">
       <CardHeader className="justify-between">
         <div className="flex gap-5">
-          <Avatar
+          <CustomAvatar
             isBordered
+            showFallback
             aria-label="profile-picture"
             radius="full"
             size="md"
