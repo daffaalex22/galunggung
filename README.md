@@ -1,34 +1,38 @@
-# Next.js & HeroUI Template
+# Next.js & HeroUI Template 🚀
 
 This is a template for creating applications using Next.js 14 (pages directory) and HeroUI (v2).
 
-[Try it on CodeSandbox](https://githubbox.com/heroui-inc/next-pages-template)
+## Live Preview 🌐
 
-> Note: Since Next.js 14, the pages router is recommend migrating to the [new App Router](https://nextjs.org/docs/app) to leverage React's latest features
->
-> Read more: [Pages Router](https://nextjs.org/docs/pages)
+Check out the live demo: [Galunggung Husada](https://galunggung.vercel.app)
 
-## Technologies Used
+## Features ✨
 
-- [Next.js 14](https://nextjs.org/docs/getting-started)
-- [HeroUI](https://heroui.com)
-- [Tailwind CSS](https://tailwindcss.com)
-- [Tailwind Variants](https://tailwind-variants.org)
-- [TypeScript](https://www.typescriptlang.org)
-- [Framer Motion](https://www.framer.com/motion)
-- [next-themes](https://github.com/pacocoursey/next-themes)
+- 📱 Fully Responsive
+- 🌓 Light/Dark mode support
+- 🌍 Internationalization (i18n)
+- 🎨 Beautiful UI components
+- ⚡ Fast page loads
+- 🔄 Smooth animations
 
-## How to Use
+## Technologies Used 🛠️
 
-To create a new project based on this template using `create-next-app`, run the following command:
+- [Next.js 15](https://nextjs.org/docs/getting-started) - React framework for production
+- [HeroUI v2](https://heroui.com) - Modern and beautiful UI components
+- [Tailwind CSS](https://tailwindcss.com) - Utility-first CSS framework
+- [Tailwind Variants](https://tailwind-variants.org) - Ship beautiful products faster
+- [TypeScript](https://www.typescriptlang.org) - JavaScript with syntax for types
+- [Framer Motion](https://www.framer.com/motion) - Production-ready motion library
+- [next-themes](https://github.com/pacocoursey/next-themes) - Dark mode made easy
+- [Swiper](https://swiperjs.com) - Modern touch slider
+- [next-intl](https://next-intl-docs.vercel.app) - Internationalization for Next.js
+- [Axios](https://axios-http.com) - Promise based HTTP client
 
-```bash
-npx create-next-app -e https://github.com/heroui-inc/next-pages-template
-```
+## Getting Started 🚦
 
 ### Install dependencies
 
-You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
+You can use one of them `npm`, `yarn`, `pnpm`, `bun`. Example using `npm`:
 
 ```bash
 npm install
@@ -40,16 +44,4 @@ npm install
 npm run dev
 ```
 
-### Setup pnpm (optional)
-
-If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
-
-```bash
-public-hoist-pattern[]=*@heroui/*
-```
-
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
-
-## License
-
-Licensed under the [MIT license](https://github.com/heroui-inc/next-pages-template/blob/main/LICENSE).
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result! 🎉
